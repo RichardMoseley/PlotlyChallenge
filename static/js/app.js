@@ -40,6 +40,7 @@ function buildPlots(userInput) {
         var demo_card_li = d3.select('#sample-metadata')
         var selected_data = d.metadata.filter(i => i.id == userInput)
         selected_data.forEach(i => {
+            demo_card_li.html('')
             demo_card_li.append('li').html(`ID: ${i.id}<br>`)
             demo_card_li.append('li').html(`Ethnicity: ${i.ethnicity}<br>`)
             demo_card_li.append('li').html(`Gender: ${i.gender}<br>`)
