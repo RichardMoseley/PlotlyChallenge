@@ -1,16 +1,5 @@
-d3.json('../data/samples.json').then((d) => {
-    console.log(d);
-    var dropdown = d3.select('#selDataset')
-    var otu_idArr = []
-    d.metadata.forEach(i => {
-        otu_idArr.push(i.id)
-        dropdown.append('option').text(i.id)
-    })
-    console.log(otu_idArr)
-});
-
 function buildPlots(userInput) {
-    d3.json('../data/samples.json').then((d) => {
+    d3.json('https://richardmoseley.github.io/PlotlyChallenge/data/samples.json').then((d) => {
         var filter = d.samples.filter(i => i.id == userInput)
         var filtered_ids = filter[0].otu_ids
         var filtered_sample_values = filter[0].sample_values
@@ -55,3 +44,14 @@ function buildPlots(userInput) {
 function optionChanged(option) {
     buildPlots(option)
 }
+
+d3.json('https://richardmoseley.github.io/PlotlyChallenge/data/samples.json').then((d) => {
+    console.log(d);
+    var dropdown = d3.select('#selDataset')
+    var otu_idArr = []
+    d.metadata.forEach(i => {
+        otu_idArr.push(i.id)
+        dropdown.append('option').text(i.id)
+    })
+    console.log(otu_idArr)
+});
